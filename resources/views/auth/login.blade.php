@@ -1,6 +1,8 @@
-@extends('layouts.app')
-
-@section('content')
+@extends('layouts.main-layout')
+@section('title')
+    <title> Login </title>
+@endsection
+@section('contents')
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
