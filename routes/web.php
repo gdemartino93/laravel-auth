@@ -19,7 +19,7 @@ Route::get('/', [MainController::class , "home"])
 
 
 Route::get('/privateSection', [MainController :: class, 'sezionePrivata']) 
-    -> middleware(['auth', 'verified']) -> name('sezione-privata');
+    -> name('sezione-privata');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

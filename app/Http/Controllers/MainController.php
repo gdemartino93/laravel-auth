@@ -10,12 +10,14 @@ class MainController extends Controller
     public function home(){
         return view('pages.home');
     }
+    
     public function sezionePrivata(){
         // se loggato ritorna pagina sezione privata altrimenti ritorna il login
-        if(Auth::class){
+        if(Auth::check()){
             return view('pages.privateSection');
         }else{
-            return view('pages.login');
+            return view('pages.userOnly');
         }
+        // per usare il metodo "standard" nella rotta gestire con middleware
     }
 }
