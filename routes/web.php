@@ -14,11 +14,12 @@ use App\Http\Controllers\MainController;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home');
-});
-Route::get('/home', [MainController::class , "home"])
+Route::get('/', [MainController::class , "home"])
     ->name('home');
+
+
+Route::get('/privateSection', [MainController :: class, 'sezionePrivata']) 
+    -> middleware(['auth', 'verified']) -> name('sezione-privata');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
