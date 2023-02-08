@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Mockery\Undefined;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Product>
@@ -19,7 +20,7 @@ class ProductFactory extends Factory
         return [
             'name' => fake() -> sentence(1),
             'description' => fake() -> paragraph(1),
-            'price' => fake() -> numberBetween(1,300),
+            'price' => fake() -> randomFloat(null,1,100),
             'img' => fake() -> imageUrl(100, 100, 'animals', true),
             'discount' => fake() -> boolean(50)
         ];
