@@ -21,9 +21,11 @@ Route::get('/', [MainController::class , "home"])
 Route::get('/privateSection', [MainController :: class, 'sezionePrivata']) 
     -> name('sezione-privata');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard',[MainController :: class, 'sezionePrivata'])
+    ->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
