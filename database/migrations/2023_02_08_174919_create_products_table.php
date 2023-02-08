@@ -18,9 +18,9 @@ return new class extends Migration
 
             $table -> string('name', 50);
             $table -> string('description', 200)-> nullable();
-            $table -> integer('prezzo')->unsigned();
+            $table -> integer('price')->unsigned();
             $table -> string('img') ->nullable();
-            $table -> boolean('sconto') ->nullable();
+            $table -> boolean('discount') ->nullable();
 
             $table->timestamps();
         });

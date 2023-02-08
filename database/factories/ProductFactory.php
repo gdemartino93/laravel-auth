@@ -19,9 +19,9 @@ class ProductFactory extends Factory
         return [
             'name' => fake() -> sentence(1),
             'description' => fake() -> paragraph(1),
-            'prezzo' => fake() -> numberBetween(1,300),
+            'price' => fake() -> numberBetween(1,300),
             'img' => fake() -> imageUrl(100, 100, 'animals', true),
-            'sconto' => fake() -> boolean(50)
+            'discount' => fake() -> boolean(50)
         ];
     }
 }

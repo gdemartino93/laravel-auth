@@ -1,2 +1,17 @@
 @import '~bootstrap/scss/bootstrap';
 @import "@fortawesome/fontawesome-free/css/all.css";
+
+.myCard{
+    background: cornflowerblue;
+    border: 1px solid black;
+    margin: 10px;
+    img{
+        border-radius: 50%;
+    }
+}
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
