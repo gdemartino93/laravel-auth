@@ -21,7 +21,7 @@ Route::get('/', [MainController::class , "home"])
 Route::get('/privateSection', [MainController :: class, 'sezionePrivata']) 
     -> name('sezione-privata');
 
-Route::get('/dashboard',[MainController :: class, 'sezionePrivata'])
+Route::get('/dashboard',[MainController :: class, 'dashBoard'])
     ->name('dashboard');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

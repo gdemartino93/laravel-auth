@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +16,6 @@ class MainController extends Controller
     }
     
     public function sezionePrivata(){
-        // se loggato ritorna pagina sezione privata altrimenti ritorna il login
         if(Auth::check()){
             $products = Product::where('discount',true) ->get();
             $data = ["products" => $products];
@@ -24,5 +24,20 @@ class MainController extends Controller
             return view('pages.userOnly');
         }
         // per usare il metodo "standard" nella rotta gestire con middleware
+    }
+    public function dashBoard(){
+        if(Auth::check()){
+            $users = User::all();
+            $products = Product::all();
+            $discounts = Product::where('discount',true) ->get();
+            $data = [
+                    "users" => $users,
+                    "products" => $products,
+                    "discounts" => $discounts
+                    ];
+            return view('pages.dashboard',$data);
+        }else{
+            return view('pages.userOnly');
+        }
     }
 }
