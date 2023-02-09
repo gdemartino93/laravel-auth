@@ -96,32 +96,34 @@ class MainController extends Controller
     }
 
     public function editProduct(Product $product , Request $request){
-        $data = $request -> all();
-        // $data = $request ->validate([
-        //     'name' => 'required|max:50|unique:products,name',
-        //     'description' => 'required',
-        //     'price' => 'integer|min:1',
-        //     'img' => 'nullable',
-        //     'discount' => 'nullable'
-        // ],[
-        //     'name.unique' => "Esiste già un prodotto con lo stesso nome",
-        //     'name.required' => 'Il nome è obbligatorio',
-        //     'name.max' => 'Il tuo nome deve avere massimo 50 caratteri',
-        //     'description.required' => 'La descrizione è obbligatorio',
-        //     'price.integer' => 'Il prezzo deve essere numerico',
-        //     'price.min' => 'Il prezzo minimo è di 1 euro'
+        $data = $request ->validate([
+            'name' => 'required|max:50',
+            'description' => 'required',
+            'price' => 'min:1',
+            'img' => 'nullable',
+            'discount' => 'nullable'
+        ],[
+            'name.required' => 'Il nome è obbligatorio',
+            'name.max' => 'Il tuo nome deve avere massimo 50 caratteri',
+            'description.required' => 'La descrizione è obbligatorio',
+            'price.min' => 'Il prezzo minimo è di 1 euro'
 
-        // ]);
+        ]);
 
         $product -> name = $data['name'];
         $product -> description = $data['description'];
         $product -> price = $data['price'];
         $product -> img = $data['img'];
-        $product -> discount = $data['discount'];
+        $product -> discount = array_key_exists('discount', $data) ? ($data['discount'] ? 1 : 0) : 0;
 
         $product -> save();
 
         return redirect() -> route('dashboard');
     }
+    public function single(Product $product){
+
+        return view('pages.singleProduct',compact('product'));
+    }
+    
 
 }

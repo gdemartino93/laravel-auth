@@ -3,6 +3,10 @@
 :root{
     --bg-primary: #212529;
 }
+a{
+    text-decoration: none;
+    color: inherit;
+}
 .myCard{
     background: cornflowerblue;
     border: 1px solid black;

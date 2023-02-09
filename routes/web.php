@@ -23,19 +23,12 @@ Route::get('/privateSection', [MainController :: class, 'sezionePrivata'])
 // redirect to addproduct pages
 Route::get('/product/addnew', [MainController :: class , 'createNew'])
     ->middleware(['auth', 'verified'])->name('createNew');
-    // ----------------------------------------------------------------------------------------
-    // !                                                                                      !
-    // ! Devo inserire middleware sia al post che al get anche se la rotta è la stessa?       !
-    // !                                                                                      !
-    // -----------------------------------------------------------------------------------------
+
 Route::post('/product/addnew', [MainController :: class , 'store'])
-    ->name('product.store');
+->middleware(['auth','verified']) ->name('product.store');
 
 Route::get('/dashboard',[MainController :: class, 'dashBoard'])
     ->name('dashboard');
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('product/delete/{product}', [MainController :: class , 'deleteProduct'])
     ->middleware(['auth','verified'])->name('product.delete');
@@ -47,6 +40,8 @@ Route::get('product/edit/{product}', [MainController :: class ,'redirectEditProd
 Route::post('product/edit/{product}',[MainController :: class, 'editProduct'])
     ->middleware(['auth','verified']) ->name('product.edit');
 
+Route::get('product/single/{product}',[MainController :: class, 'single'])
+    ->name('singleProduct');
     
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
