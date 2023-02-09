@@ -18,7 +18,7 @@
                     <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('sezione-privata')}}" class="nav-link">Sezione Privata</a>
+                    <a href="{{route('sezione-privata')}}" class="nav-link">Prodotti in sconto</a>
                 </li>
                 
             </ul>
