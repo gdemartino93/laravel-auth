@@ -32,7 +32,7 @@ class MainController extends Controller
             $users = User::all();
             $products = Product::all();
             $discounts = Product::where('discount',true) ->get();
-            // https://laravel.com/docs/5.0/queries#aggregates query make with aggregates
+            //https://laravel.com/docs/9.x/queries#aggregates query make with aggregates
             $prices = DB::table('products')
                     -> sum('price');
             $data = [
