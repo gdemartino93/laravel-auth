@@ -17,7 +17,9 @@ class MainController extends Controller
     public function sezionePrivata(){
         // se loggato ritorna pagina sezione privata altrimenti ritorna il login
         if(Auth::check()){
-            return view('pages.privateSection');
+            $products = Product::where('discount',true) ->get();
+            $data = ["products" => $products];
+            return view('pages.privateSection',$data);
         }else{
             return view('pages.userOnly');
         }
