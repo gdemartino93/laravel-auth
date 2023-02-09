@@ -82,8 +82,11 @@ class MainController extends Controller
         return redirect() -> route('dashboard');
     }
 
-    public function deleteProduct(Product $product){
+    public function deleteProduct($id){
+   
+        $product = Product::Find($id);
         $product -> delete();
-        return redirect() -> route('dashboard',$product);
+        return redirect() -> route('dashboard');
     }
+
 }
