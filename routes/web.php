@@ -20,6 +20,11 @@ Route::get('/', [MainController::class , "home"])
 
 Route::get('/privateSection', [MainController :: class, 'sezionePrivata']) 
     -> name('sezione-privata');
+// redirect to addproduct pages
+Route::get('/product/addnew', [MainController :: class , 'createNew'])
+    ->name('createNew');
+Route::post('/product/addnew', [MainController :: class , 'store'])
+    ->name('product.store');
 
 Route::get('/dashboard',[MainController :: class, 'dashBoard'])
     ->name('dashboard');

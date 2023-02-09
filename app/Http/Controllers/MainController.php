@@ -46,4 +46,32 @@ class MainController extends Controller
             return view('pages.userOnly');
         }
     }
+    public function createNew(){
+        return view('pages.addProduct');
+    }
+    public function store(Request $request){
+
+        $data = $request ->validate([
+            'name' => 'required|max:50',
+            'description' => 'required',
+            'price' => 'integer|min:1',
+            'img' => 'nullable',
+            'discount' => 'nullable'
+        ]);
+        $newProduct = new Product();
+
+        $newProduct -> name = $data['name'];
+        $newProduct -> description = $data['description'];
+        $newProduct -> price = $data['price'];
+        $newProduct -> img = $data['img'];
+        // funzione php che verifica se una chiava ( discount) esiste all'interno di un array ( data)
+        if(array_key_exists('discount', $data)) {
+            // se è vero riorna 1 se è falso ritorna 0
+            $newProduct -> discount = $data['discount'] ? 1 : 0;
+        }
+
+        $newProduct -> save();
+
+        return redirect() -> route('home');
+    }
 }
