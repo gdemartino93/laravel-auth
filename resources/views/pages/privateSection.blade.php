@@ -1,6 +1,7 @@
 @extends('layouts.main-layout')
 
 @section('title')
+<title>Offerte</title>
 @endsection
 @section('contents')
     <h1> sezione privata per gli utenti registrati</h1>
