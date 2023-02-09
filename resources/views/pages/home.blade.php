@@ -1,4 +1,7 @@
 @extends('layouts.main-layout')
+@section('title')
+    <title>Home Page</title>
+@endsection
 @section('contents')
     <div class="container">
         <div class="col-12 d-flex flex-column justify-content-center text-center">
