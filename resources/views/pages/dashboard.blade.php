@@ -55,6 +55,9 @@
                         <a href="{{route('product.delete',$product)}}">
                             <i class="fa-solid fa-trash"></i>
                         </a>
+                        <a href="{{route('product.edit',$product)}}">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
                     </td>
                   </tr>
                 @endforeach

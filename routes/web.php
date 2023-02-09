@@ -40,6 +40,10 @@ Route::get('/dashboard',[MainController :: class, 'dashBoard'])
 Route::get('product/delete/{product}', [MainController :: class , 'deleteProduct'])
     ->middleware(['auth','verified'])->name('product.delete');
 
+// redirect edit prodotto
+Route::get('product/edit/{product}', [MainController :: class , 'redirectEditProduct'])
+    ->name('product.edit');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
