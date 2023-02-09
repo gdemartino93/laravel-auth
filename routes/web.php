@@ -37,7 +37,7 @@ Route::get('/dashboard',[MainController :: class, 'dashBoard'])
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('product/delete/{id}', [MainController :: class , 'deleteProduct'])
+Route::get('product/delete/{product}', [MainController :: class , 'deleteProduct'])
     ->middleware(['auth','verified'])->name('product.delete');
 
 Route::middleware('auth')->group(function () {
