@@ -51,7 +51,11 @@
                     <td>{{round($product -> price, 2) }}&euro;</td>
                     <td>{{($product -> img) ? 'Yes' : 'No'}}</td>
                     <td>{{$product -> discount ? 'Yes' : 'No'}}</td>
-                    <td><a href="{{route('product.delete',$product)}}">X</a></td>
+                    <td>
+                        <a href="{{route('product.delete',$product)}}">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                    </td>
                   </tr>
                 @endforeach
 

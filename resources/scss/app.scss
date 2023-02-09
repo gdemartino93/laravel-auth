@@ -1,6 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
 @import "@fortawesome/fontawesome-free/css/all.css";
-
+:root{
+    --bg-primary: #212529;
+}
 .myCard{
     background: cornflowerblue;
     border: 1px solid black;
@@ -18,4 +20,11 @@
 .cmd-btn{
     border: 1px solid grey;
     min-height: 100px;
+}
+td i{
+    color: red;
+}
+footer{
+    min-height: 10vh;
+    background: var(--bg-primary);
 }
