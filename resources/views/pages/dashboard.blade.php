@@ -21,7 +21,10 @@
     <section class="products-discount">
         <span class="fs-2">Prodotti in sconto:</span>
         <span class="fs-2">{{$discounts -> count() }}</span>
-        <span>{{$products -> count()}}</span>
+    </section>
+    <section>
+        <span class="fs-2">Totalo prezzo dei prodotti in vendita:</span>
+        <span class="fs-2 text-success">{{round($prices , 2)}} &euro;</span>
     </section>
 </div>
 
