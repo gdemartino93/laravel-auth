@@ -26,13 +26,39 @@
         <span class="fs-2">Totale prezzo dei prodotti in vendita:</span>
         <span class="fs-2 text-success">{{round($prices , 2)}} &euro;</span>
     </div>
-    <section class="cmd-btn col-6 my-3 d-flex align-items-center ">
-        <a href="{{route('createNew')}}">
+    <section class="cmd-btn col-10 my-3 d-flex align-items-center flex-column">
+        <a href="{{route('createNew')}}" class="mb-5">
             <button class="btn btn-success">Aggiungi nuovo prodotto</button>
-        </a>
-            
-    </section>
+        </a>   
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">IMG</th>
+                <th scope="col">Discount</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                @foreach ($products as $product)
+                <tr>
+                    <th scope="row">{{$product -> id}}</th>
+                    <td>{{$product -> name}}</td>
+                    <td>{{$product -> description}}</td>
+                    <td>{{round($product -> price, 2) }}&euro;</td>
+                    <td>{{($product -> img) ? 'Yes' : 'No'}}</td>
+                    <td>{{$product -> discount ? 'Yes' : 'No'}}</td>
+                    <td><a href="">X</a></td>
+                  </tr>
+                @endforeach
 
+            </tbody>
+          </table>
+    </section>
+    
 </section>
 
 @endsection

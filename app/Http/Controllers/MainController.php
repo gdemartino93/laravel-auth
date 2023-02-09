@@ -79,6 +79,6 @@ class MainController extends Controller
 
         $newProduct -> save();
 
-        return redirect() -> route('home');
+        return redirect() -> route('dashboard');
     }
 }

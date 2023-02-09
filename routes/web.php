@@ -22,7 +22,12 @@ Route::get('/privateSection', [MainController :: class, 'sezionePrivata'])
     -> name('sezione-privata');
 // redirect to addproduct pages
 Route::get('/product/addnew', [MainController :: class , 'createNew'])
-    ->name('createNew');
+    ->middleware(['auth', 'verified'])->name('createNew');
+    // ----------------------------------------------------------------------------------------
+    // !                                                                                      !
+    // ! Devo inserire middleware sia al post che al get anche se la rotta è la stessa?       !
+    // !                                                                                      !
+    // -----------------------------------------------------------------------------------------
 Route::post('/product/addnew', [MainController :: class , 'store'])
     ->name('product.store');
 
