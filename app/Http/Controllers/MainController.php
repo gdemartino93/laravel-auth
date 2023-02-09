@@ -52,12 +52,13 @@ class MainController extends Controller
     public function store(Request $request){
 
         $data = $request ->validate([
-            'name' => 'required|max:50',
+            'name' => 'required|max:50|unique:products,name',
             'description' => 'required',
             'price' => 'integer|min:1',
             'img' => 'nullable',
             'discount' => 'nullable'
         ],[
+            'name.unique' => "Esiste già un prodotto con lo stesso nome",
             'name.required' => 'Il nome è obbligatorio',
             'name.max' => 'Il tuo nome deve avere massimo 50 caratteri',
             'description.required' => 'La descrizione è obbligatorio',
