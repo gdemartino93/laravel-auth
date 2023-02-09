@@ -41,9 +41,11 @@ Route::get('product/delete/{product}', [MainController :: class , 'deleteProduct
     ->middleware(['auth','verified'])->name('product.delete');
 
 // redirect edit prodotto
-Route::get('product/edit/{product}', [MainController :: class ,])
-    ->name('product.edit');
+Route::get('product/edit/{product}', [MainController :: class ,'redirectEditProduct'])
+    ->middleware(['auth','verified'])->name('product.redirectedit');
 
+Route::post('product/edit/{product}',[MainController :: class, 'editProduct'])
+    ->middleware(['auth','verified']) ->name('product.edit');
 
     
 Route::middleware('auth')->group(function () {

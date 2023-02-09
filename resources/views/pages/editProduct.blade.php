@@ -16,7 +16,7 @@
                 </ul>
             </div>
         @endif
-        <form action="{{route('product.edit', $product)}}" method="POST" class="d-flex flex-column justify-content-center align-items-center">
+        <form action="" method="POST" class="d-flex flex-column justify-content-center align-items-center">
             @csrf
             <label for="name">Name</label>
             <input type="text" name="name" value="{{$product -> name}}">

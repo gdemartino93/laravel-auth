@@ -55,7 +55,7 @@
                         <a href="{{route('product.delete',$product)}}">
                             <i class="fa-solid fa-trash"></i>
                         </a>
-                        <a href="{{route('product.edit',$product)}}">
+                        <a href="{{route('product.redirectedit',$product)}}">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
                     </td>
