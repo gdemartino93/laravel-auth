@@ -7,6 +7,15 @@
 @section('contents')
     <div class="container col-12 my-5">
         <div class="col-6 mx-auto ">
+            @if ($errors ->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors -> all() as $error)
+                            <li> {{$error}} </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form action="{{route('product.store')}}" method="POST" class="d-flex flex-column justify-content-center align-items-center">
                 @csrf
                 <label for="name">Name</label>

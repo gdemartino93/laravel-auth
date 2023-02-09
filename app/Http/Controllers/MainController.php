@@ -57,6 +57,13 @@ class MainController extends Controller
             'price' => 'integer|min:1',
             'img' => 'nullable',
             'discount' => 'nullable'
+        ],[
+            'name.required' => 'Il nome è obbligatorio',
+            'name.max' => 'Il tuo nome deve avere massimo 50 caratteri',
+            'description.required' => 'La descrizione è obbligatorio',
+            'price.integer' => 'Il prezzo deve essere numerico',
+            'price.min' => 'Il prezzo minimo è di 1 euro'
+
         ]);
         $newProduct = new Product();
 
