@@ -114,6 +114,7 @@ class MainController extends Controller
         $product -> description = $data['description'];
         $product -> price = $data['price'];
         $product -> img = $data['img'];
+        // ternario nel ternario per verificare prima se esiste discount in data se esiste verifica se è checkato o meno. da sistemare in qualche modo non molto easy
         $product -> discount = array_key_exists('discount', $data) ? ($data['discount'] ? 1 : 0) : 0;
 
         $product -> save();
