@@ -55,7 +55,7 @@ class MainController extends Controller
             'name' => 'required|max:50|unique:products,name',
             'description' => 'required',
             'price' => 'integer|min:1',
-            'img' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg',
+            'img' => 'nullable',
             'discount' => 'nullable'
         ],[
             'name.unique' => "Esiste già un prodotto con lo stesso nome",
@@ -66,11 +66,6 @@ class MainController extends Controller
             'price.min' => 'Il prezzo minimo è di 1 euro',
             'img.image' => 'Puoi caricare solo jpg, jpeg, png, bmp, gif, svg, webp'
         ]);
-
-        $img_path = Storage::put('uploads', $data['img']);
-        $data['img'] = $img_path;
-
-
         $newProduct = new Product();
 
         $newProduct -> name = $data['name'];

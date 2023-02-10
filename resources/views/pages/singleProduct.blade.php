@@ -25,7 +25,11 @@
             <span>{{round($product -> price, 2)}}&euro;</span>
             {{-- operatore terniario per sostituire 1 e 0 di ritorno dal booleano --}}
             <span>{{$product -> discount ? 'Sconto' : 'Non scontato'}}</span>
+            @if ($product -> user_name)
+                <span class="fw-bold">Venduto da: {{$product -> user_name}}</span>
+            @endif
         </div>
+        
 </div>
 
 @endsection

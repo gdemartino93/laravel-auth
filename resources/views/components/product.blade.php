@@ -3,7 +3,6 @@
         <div class="img">
             <img class="img-fluid" src="{{ asset('storage/' . $product -> img)}}" alt="" >
         </div> 
-
         <h4>{{$product -> name}}</h4>
         <p>{{$product -> description}}</p>
         {{-- funzione per arrotondare cifre decimali a 2 --}}
