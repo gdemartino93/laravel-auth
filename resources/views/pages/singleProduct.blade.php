@@ -7,7 +7,7 @@
 @section('contents')
 <div class="container d-flex justify-content-center">
         <div class="col-12 col-md-12 col-lg-12 d-flex flex-column myCard" >
-            <div class="img">
+            <div class="img-single align-self-center col-2">
                 <img class="img-fluid" src={{$product -> img}} alt="" >
             </div>
             <h4>{{$product -> name}}</h4>
