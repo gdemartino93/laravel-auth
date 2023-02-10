@@ -7,22 +7,46 @@ a{
     text-decoration: none;
     color: inherit;
 }
+a:hover{
+    color: black;
+}
 body{
     height: 100vh;
 }
 
 .myCard{
-    background: cornflowerblue;
+    background: gainsboro;
     border: 1px solid black;
     margin: 10px;
     text-align: center;
     &:hover{
-        box-shadow: 4px 4px 4px blue;
+        box-shadow: 4px 4px 4px grey;
+        color: white;
     }
     img{
         border-radius: 50%;
         width: 100px;
         height: 100px;
+    }
+    a{
+        &:hover{
+            color: inherit;
+        }
+    }
+}
+.myCard_single{
+    // background: cornflowerblue;
+    // border: 1px solid black;
+    margin: 10px;
+    text-align: center;
+    min-height: 90vh;
+    background: var(--bg-primary);
+    color: white;
+
+    img{
+        border-radius: 18px 18px;
+        max-width: 100%;
+        height: 400px;
     }
     a{
         &:hover{
