@@ -6,8 +6,7 @@
 
 @section('contents')
 <div class="container d-flex justify-content-center">
-    <a href="{{route('home')}}" class="col-12 col-md-4 col-lg-2 d-flex flex-column myCard">
-        <div >
+        <div class="col-12 col-md-12 col-lg-12 d-flex flex-column myCard" >
             <div class="img">
                 <img class="img-fluid" src={{$product -> img}} alt="" >
             </div>
@@ -18,7 +17,6 @@
             {{-- operatore terniario per sostituire 1 e 0 di ritorno dal booleano --}}
             <span>{{$product -> discount ? 'Sconto' : 'Non scontato'}}</span>
         </div>
-    </a>
 </div>
 
 @endsection
