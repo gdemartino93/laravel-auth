@@ -19,7 +19,7 @@ return new class extends Migration
             $table -> string('name', 50);
             $table -> string('description', 200)-> nullable();
             $table -> double('price')->unsigned();
-            $table -> string('img') ->nullable();
+            $table -> string('img') -> default('noimg.png');
             $table -> boolean('discount') ->nullable();
             $table->string('user_name')->nullable();
 

@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Storage;
 class MainController extends Controller
 {
     public function home(){
@@ -55,7 +55,7 @@ class MainController extends Controller
             'name' => 'required|max:50|unique:products,name',
             'description' => 'required',
             'price' => 'integer|min:1',
-            'img' => 'nullable',
+            'img' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg',
             'discount' => 'nullable'
         ],[
             'name.unique' => "Esiste già un prodotto con lo stesso nome",
@@ -63,15 +63,21 @@ class MainController extends Controller
             'name.max' => 'Il tuo nome deve avere massimo 50 caratteri',
             'description.required' => 'La descrizione è obbligatorio',
             'price.integer' => 'Il prezzo deve essere numerico',
-            'price.min' => 'Il prezzo minimo è di 1 euro'
-
+            'price.min' => 'Il prezzo minimo è di 1 euro',
+            'img.image' => 'Puoi caricare solo jpg, jpeg, png, bmp, gif, svg, webp'
         ]);
+
+        $img_path = Storage::put('uploads', $data['img']);
+        $data['img'] = $img_path;
+
+
         $newProduct = new Product();
 
         $newProduct -> name = $data['name'];
         $newProduct -> description = $data['description'];
         $newProduct -> price = $data['price'];
         $newProduct -> img = $data['img'];
+
         // funzione php che verifica se una chiava ( discount) esiste all'interno di un array ( data)
         if(array_key_exists('discount', $data)) {
             // se è vero riorna 1 se è falso ritorna 0

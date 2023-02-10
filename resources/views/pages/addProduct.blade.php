@@ -16,7 +16,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="{{route('product.store')}}" method="POST" class="d-flex flex-column justify-content-center align-items-center">
+            <form action="{{route('product.store')}}" method="POST" class="d-flex flex-column justify-content-center align-items-center" enctype="multipart/form-data">
                 @csrf
                 <label for="name">Name</label>
                 <input type="text" name="name">
@@ -25,7 +25,7 @@
                 <label for="price">Price</label>
                 <input type="number" name="price">
                 <label for="img">Img Link</label>
-                <input type="text" name="img">
+                <input type="file" name="img">
                 {{-- <div class="d-flex gap-5 "> --}}
                     <label for="discount">Discount:</label>
                     <input type="checkbox" name="discount" id="">    
