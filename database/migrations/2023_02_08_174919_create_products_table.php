@@ -21,6 +21,7 @@ return new class extends Migration
             $table -> double('price')->unsigned();
             $table -> string('img') ->nullable();
             $table -> boolean('discount') ->nullable();
+            $table->string('user_name')->nullable();
 
             $table->timestamps();
         });

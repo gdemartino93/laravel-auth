@@ -77,7 +77,8 @@ class MainController extends Controller
             // se è vero riorna 1 se è falso ritorna 0
             $newProduct -> discount = $data['discount'] ? 1 : 0;
         }
-
+        $newProduct->user_name = auth()->user()->name;
+        
         $newProduct -> save();
 
         return redirect() -> route('dashboard');
