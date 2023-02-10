@@ -1,8 +1,18 @@
 <a href="{{route('singleProduct',$product)}}" class="col-12 col-md-4 col-lg-2 d-flex flex-column myCard">
     <div >
+        @if ($product -> img)
+
+        @endif
+        @if ($product -> img)
         <div class="img">
             <img class="img-fluid" src={{$product -> img}} alt="" >
-        </div>
+        </div> 
+        @else
+        <div class="img">
+            <img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png" alt="" >
+        </div> 
+        @endif
+
         <h4>{{$product -> name}}</h4>
         <p>{{$product -> description}}</p>
         {{-- funzione per arrotondare cifre decimali a 2 --}}

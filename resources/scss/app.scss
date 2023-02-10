@@ -7,13 +7,27 @@ a{
     text-decoration: none;
     color: inherit;
 }
+body{
+    height: 100vh;
+}
+
 .myCard{
     background: cornflowerblue;
     border: 1px solid black;
     margin: 10px;
     text-align: center;
+    &:hover{
+        box-shadow: 4px 4px 4px blue;
+    }
     img{
         border-radius: 50%;
+        width: 100px;
+        height: 100px;
+    }
+    a{
+        &:hover{
+            color: inherit;
+        }
     }
 }
 .wrapper{
@@ -28,9 +42,9 @@ a{
 td i{
     color: red;
 }
-footer{
-    min-height: 10vh;
-    background: var(--bg-primary);
+header{
+    position: sticky;
+    top: 0;
 }
 .img-single{
     img{
