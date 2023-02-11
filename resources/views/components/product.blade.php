@@ -1,7 +1,7 @@
 <a href="{{route('singleProduct',$product)}}" class="col-12 col-md-4 col-lg-2 d-flex flex-column myCard">
     <div >
         <div class="img">
-            <img class="img-fluid" src="{{ asset('storage/' . $product -> img)}}" alt="" >
+            <img class="img-fluid" src="{{ asset('storage/' . $product -> img)}}" alt="{{$product -> name}}" >
         </div> 
         <h4>{{$product -> name}}</h4>
         <p>{{$product -> description}}</p>
