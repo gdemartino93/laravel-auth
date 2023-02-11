@@ -105,7 +105,7 @@ class MainController extends Controller
             'name' => 'required|max:50',
             'description' => 'required',
             'price' => 'min:1',
-            'img' => 'nullable',
+            'img' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'discount' => 'nullable'
         ],[
             'name.required' => 'Il nome è obbligatorio',
@@ -115,6 +115,9 @@ class MainController extends Controller
 
         ]);
 
+        $img_path = Storage :: put ('uploads' , $data['img']);
+        $data['img'] = $img_path;
+        
         $product -> name = $data['name'];
         $product -> description = $data['description'];
         $product -> price = $data['price'];
